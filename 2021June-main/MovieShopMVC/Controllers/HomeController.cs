@@ -33,10 +33,13 @@ namespace MovieShopMVC.Controllers
             return View();
         }
 
-        public IActionResult Index()
+        public async Task< IActionResult> Index()
         {
+            // var x = fnlsdfmlksd
+            // var y = sdklfds;lfm
 
-            var movies = _movieService.GetTopRevenueMovies();
+            var movies = await _movieService.GetTopRevenueMovies();
+            // 1 ms, 20 ms, 10 seconds
 
             var myType = movies.GetType();
 
