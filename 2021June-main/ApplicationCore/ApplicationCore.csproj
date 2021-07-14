@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Entities\Crew.cs" />
+    <Compile Remove="Entities\Favorite.cs" />
+    <Compile Remove="Entities\MovieCrew.cs" />
+    <Compile Remove="Entities\MovieGenre.cs" />
+    <Compile Remove="Entities\Purchase.cs" />
+    <Compile Remove="Entities\Review.cs" />
+    <Compile Remove="Entities\Role.cs" />
+    <Compile Remove="Entities\User.cs" />
+    <Compile Remove="Entities\UserRole.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Models\" />
+    <None Remove="Entities\" />
+    <None Remove="RepositoryInterfaces\" />
+    <None Remove="ServiceInterfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="RepositoryInterfaces\" />
+    <Folder Include="ServiceInterfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+</Project>
