@@ -5,14 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Entities\Crew.cs" />
-    <Compile Remove="Entities\Favorite.cs" />
-    <Compile Remove="Entities\MovieCrew.cs" />
     <Compile Remove="Entities\MovieGenre.cs" />
-    <Compile Remove="Entities\Purchase.cs" />
-    <Compile Remove="Entities\Review.cs" />
-    <Compile Remove="Entities\Role.cs" />
-    <Compile Remove="Entities\User.cs" />
     <Compile Remove="Entities\UserRole.cs" />
   </ItemGroup>
 
