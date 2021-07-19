@@ -1,9 +1,12 @@
-﻿using ApplicationCore.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using ApplicationCore.Entities;
 using ApplicationCore.RepositoryInterfaces;
 using Infrastructure.Data;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace Infrastructure.Repositories
 {
@@ -12,5 +15,18 @@ namespace Infrastructure.Repositories
         public GenreRepository(MovieShopDbContext dbContext) : base(dbContext)
         {
         }
+
+        public async Task<List<Movie>> GetHighest30GrossingMoviesByGenre(int id)
+        {
+           
+            // this return every movies
+            // var movie = await _dbContext.Movies.Include(m => m.Genres.Where(g=>g.Id == id)).ToListAsync();
+            
+            var genre = await _dbContext.Genres.Include(g => g.Movies).FirstOrDefaultAsync(g => g.Id == id);
+            var movie = genre.Movies.ToList();
+            return movie;
+        }
+
+
     }
 }

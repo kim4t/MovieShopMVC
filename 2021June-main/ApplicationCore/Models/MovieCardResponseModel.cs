@@ -10,6 +10,6 @@ namespace ApplicationCore.Models
         public string PosterUrl { get; set; }
         public decimal Budget { get; set; }
 
-        
+        public string PosterURL { get; set; }
     }
 }

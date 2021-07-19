@@ -1,19 +1,23 @@
-﻿@model List< ApplicationCore.Models.MovieCardResponseModel>
+﻿@model List<ApplicationCore.Models.MovieCardResponseModel>
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
 
-<h2> Top Movies Count: @Model.Count  </h2>
-
-@foreach (var movie in Model )
-{
-    <div>
-        @movie.Id<br />
-        @movie.Title <br />
+<div class="rounded">
+    <div class="container-fluid bg-light">
+        <div class="row">
+            @foreach (var movie in Model)
+            {
+                <div class="col-3">
+                    <partial name="_MovieCard" model="movie" />
+                </div>
+            }
+        </div>
     </div>
-}
+</div>
+
 
 
 
