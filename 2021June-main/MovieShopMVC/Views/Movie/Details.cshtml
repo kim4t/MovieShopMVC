@@ -1,5 +1,6 @@
 ﻿@model ApplicationCore.Models.MovieDetailsResponseModel
 
+
 @{
     ViewData["Title"] = "Moive Details";
 }
@@ -14,7 +15,8 @@
         <div class="col">
             <h2>@Model.Title</h2>
             <p>@Model.Tagline</p>
-            <p>@Model.RunTime m | @Model.ReleaseDate.Value.Year     @foreach (var genre in Model.Genres) { <span class="badge badge-secondary"> @genre.Name</span>}</p>
+            <p>@Model.RunTime m | @Model.ReleaseDate.Value.Year     @foreach (var genre in Model.Genres)
+            {<span class="badge badge-secondary"> @genre.Name</span>}</p>
             <p>@Model.Rating</p>
             <p>@Model.Overview</p>
         </div>
@@ -22,8 +24,16 @@
             <ul class="list-group">
                 <li class="list-group-item"><button type="button" class="btn btn-dark">Review</button></li>
                 <li class="list-group-item"><button type="button" class="btn btn-dark">Trailer</button></li>
-                <li class="list-group-item"><button type="button" class="btn btn-light">Buy @Model.Price</button></li>
-                <li class="list-group-item"><button type="button" class="btn btn-light">Watch Movie</button></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+            
+            <li class="list-group-item">
+                <a class="btn btn-primary" asp-controller="User" asp-action="Purchase" asp-route-id="@Model.Id"> Buy @Model.Price </a>
+                @*<button type="button" class="btn btn-light" asp-controller="User" asp-action="ConfirmPurchase" asp-route-id="@Model.Id">Buy @Model.Price</button>*@
+            </li>
+                    <li class="list-group-item"><button type="button" class="btn btn-light">Watch Movie</button></li>
+                }
+
             </ul>
         </div>
     </div>
@@ -45,10 +55,10 @@
             <ul class="list-group">
                 @foreach (var cast in Model.Casts)
                 {
-                    <li class="list-group-item "> 
+                    <li class="list-group-item ">
                         <a asp-controller="Cast" asp-action="CastDetail" asp-route-id=@cast.Id>
                             <img src="@cast.ProfilePath" height=100>
-                        </a> 
+                        </a>
                         @cast.Name / @cast.Character
                     </li>
                 }

@@ -196,3 +196,11 @@ C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug
 C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_GenresView.cshtml.g.cs
 C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Movie\Genre.cshtml.g.cs
 C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Cast\CastDetail.cshtml.g.cs
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\ConfirmPurchase.cshtml.g.cs
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\Purchase.cshtml.g.cs
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\ThanksToPurchase.cshtml.g.cs
