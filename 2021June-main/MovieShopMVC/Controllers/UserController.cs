@@ -16,14 +16,16 @@ namespace MovieShopMVC.Controllers
         private readonly IMovieService _movieService;
         private readonly IUserRepository _userRepository;
         private readonly IMovieRepository _movieRepository;
+        private readonly IPurchaseService _purchaseService;
         private readonly IPurchaseRepository _purchaseRepository;
-        public UserController(ICurrentUser currentUser, IMovieService movieService, 
-                              IUserRepository userRepository, IMovieRepository movieRepository, IPurchaseRepository purchaseRepository)
+        public UserController(ICurrentUser currentUser, IMovieService movieService, IPurchaseRepository purchaseRepository,
+                              IUserRepository userRepository, IMovieRepository movieRepository, IPurchaseService purchaseService)
         {
             _currentUser = currentUser;
             _movieService = movieService;
             _userRepository = userRepository;
             _movieRepository = movieRepository;
+            _purchaseService = purchaseService;
             _purchaseRepository = purchaseRepository;
         }
 

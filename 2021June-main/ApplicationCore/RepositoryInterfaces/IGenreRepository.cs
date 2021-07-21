@@ -9,5 +9,6 @@ namespace ApplicationCore.RepositoryInterfaces
    public interface IGenreRepository: IAsyncRepository<Genre>
     {
         Task<List<Movie>> GetHighest30GrossingMoviesByGenre(int id);
+        
     }
 }
