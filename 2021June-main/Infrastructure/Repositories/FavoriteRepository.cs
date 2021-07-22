@@ -18,8 +18,8 @@ namespace Infrastructure.Repositories
 
         public async Task<List<Favorite>> GetAllFavorites(int id)
         {
-            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
-            var favorites = user.Favorites.ToList();
+            
+            var favorites = await _dbContext.Favorites.Where(f => f.UserId == id).ToListAsync();
             if (favorites == null)
             {
                 throw new Exception($"No Favorites Found with {id}");

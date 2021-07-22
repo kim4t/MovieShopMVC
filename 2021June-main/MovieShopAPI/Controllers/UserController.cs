@@ -34,60 +34,76 @@ namespace MovieShopAPI.Controllers
 
         [HttpPost]
         [Route("purchase")]
-        public async Task<IActionResult> PutPurchase([FromBody] PurchaseRequestModel model)
+        public async Task<IActionResult> PostPurchase([FromBody] PurchaseRequestModel model)
         {
-            var purchase = await _purchaseService.ConfirmPurchase(model);
+            var createdPurchase = await _purchaseService.ConfirmPurchase(model);
             
-            return Ok(purchase);
+            return CreatedAtRoute("GetPurchase", new { id = createdPurchase.UserId }, createdPurchase);
         }
 
         [HttpPost]
         [Route("favorite")]
         public async Task<IActionResult> PostFavorite([FromBody] FavoriteRequestModel model)
         {
-            var favorite = await _favoriteService.ConfirmFavorite(model);
-            return Ok(favorite);
+            var createdFavorite = await _favoriteService.ConfirmFavorite(model);
+            return CreatedAtRoute("GetFavorites", new { id = createdFavorite.UserId }, createdFavorite);
         }
 
         [HttpPost]
         [Route("review")]
         public async Task<IActionResult> PostReview([FromBody] ReviewRequestModel model)
         {
-            var review = await _reviewService.PostReview(model);
-            return Ok(review);
+            var createdReviews = await _reviewService.PostReview(model);
+            return CreatedAtRoute("GetReviews", new { id = createdReviews.UserId }, createdReviews);
         }
 
         [HttpPut]
         [Route("review")]
-        public async Task<IActionResult> PutReviwe([FromBody] ReviewRequestModel model)
+        public async Task<IActionResult> PutReview([FromBody] ReviewRequestModel model)
         {
             var review = await _reviewService.PutReview(model);
             return Ok(review);
         }
 
         [HttpGet]
-        [Route("{id:int}/review")]
-        public async Task<IActionResult> GetAllReviws(int id)
+        [Route("{id:int}/purchases", Name = "GetPurchase")]
+        public async Task<IActionResult> GetPurchasesById(int id)
+        {
+            var purchases = await _purchaseService.GetAllPurchases(id);
+            if (purchases == null)
+            {
+                return NotFound($"purchases does not exists for {id}");
+            }
+
+            return Ok(purchases);
+        }
+
+        [HttpGet]
+        [Route("{id:int}/favorites", Name = "GetFavorites")]
+        public async Task<IActionResult> GetFavoritesById(int id)
+        {
+            var favorites = await _favoriteService.GetAllFavorites(id);
+            if (favorites == null)
+            {
+                return NotFound($"favorite does not exists for {id}");
+            }
+
+            return Ok(favorites);
+        }
+
+        [HttpGet]
+        [Route("{id:int}/revies", Name = "GetReviews")]
+        public async Task<IActionResult> GetReviewsById(int id)
         {
             var reviews = await _reviewService.GetAllReviews(id);
+            if (reviews == null)
+            {
+                return NotFound($"review does not exists for {id}");
+            }
+
             return Ok(reviews);
         }
 
-        [HttpGet]
-        [Route("{id:int}/purchase")]
-        public async Task<IActionResult> GetAllPurchases(int id)
-        {
-            var reviews = await _purchaseService.GetAllPurchases(id);
-            return Ok(reviews);
-        }
-
-        [HttpGet]
-        [Route("{id:int}/favorate")]
-        public async Task<IActionResult> GetAllFavortes(int id)
-        {
-            var reviews = await _favoriteService.GetAllFavorites(id);
-           
-            return Ok(reviews);
-        }
+       
     }
 }

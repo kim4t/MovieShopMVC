@@ -27,9 +27,23 @@ namespace MovieShopAPI.Controllers
 
             // send the URL for newly created user also
             // 5000
-
             return CreatedAtRoute("GetUser", new { id = createdUser.Id }, createdUser);
             // 201
+        }
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<IActionResult> LoginUser(string email, string password)
+        {
+            var loginUser = await _userService.Login(email,password);
+            return Ok(loginUser);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await _userService.GetAllUsers();
+            return Ok(users);
         }
 
         [HttpGet]

@@ -18,12 +18,12 @@ namespace Infrastructure.Repositories
 
         public async Task<List<Purchase>> GetAllPurchases(int id)
         {
-            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
-            var purchases = user.Purchases.ToList();
-            if (purchases == null)
+            var purchases = await _dbContext.Purchases.Where(p => p.UserId == id).ToListAsync();
+            if(purchases == null)
             {
-                throw new Exception($"No Purchase Found with {id}");
+                throw new Exception($"No user Found with {id}");
             }
+            
             return purchases;
         }
     }

@@ -40,7 +40,7 @@ namespace MovieShopAPI.Controllers
 
         [HttpGet]
         [Route("toprevenue")]
-        public async Task<IActionResult> GetTopRevenueMovies()  //error
+        public async Task<IActionResult> GetTopRevenueMovies()  
         {
             var movies = await _movieService.GetTopRevenueMovies();
 
@@ -56,7 +56,7 @@ namespace MovieShopAPI.Controllers
         }
         [HttpGet]
         [Route("toprated")]
-        public async Task<IActionResult> GetTopRatedMovies()  //error
+        public async Task<IActionResult> GetTopRatedMovies()  
         {
             var movies = await _movieService.GetTopRatedMovies();
             if (!movies.Any())
@@ -81,7 +81,7 @@ namespace MovieShopAPI.Controllers
 
         [HttpGet]
         [Route("Genre/{id:int}")]
-        public async Task<IActionResult> GetTopRevenueMoviesByGenre(int id) // error
+        public async Task<IActionResult> GetTopRevenueMoviesByGenre(int id) 
         {
             var genreMovies = await _genreService.GetTopRevenueMoviesByGenre(id);
 

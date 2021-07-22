@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using ApplicationCore.Entities;
@@ -18,6 +19,25 @@ namespace Infrastructure.Services
         {
             _userRepository = userRepository;
             _purchaseRepository = purchaseRepository;
+        }
+
+        public async Task<IEnumerable<UserResponseModel>> GetAllUsers()
+        {
+            var users = await _userRepository.ListAllAsync();
+            var userModelList = new List<UserResponseModel>();
+            foreach (var user in users)
+            {
+                userModelList.Add(new UserResponseModel
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    DateOfBirth = user.DateOfBirth
+                });
+            }
+            
+            return userModelList;
         }
 
         public async Task<UserResponseModel> GetUserById(int id)

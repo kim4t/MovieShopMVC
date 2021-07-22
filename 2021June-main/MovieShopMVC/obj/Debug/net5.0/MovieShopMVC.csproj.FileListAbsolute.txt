@@ -204,3 +204,9 @@ C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug
 C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\ConfirmPurchase.cshtml.g.cs
 C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\Purchase.cshtml.g.cs
 C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\ThanksToPurchase.cshtml.g.cs
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\bin\Debug\net5.0\MovieShopSPA\angular.json
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\bin\Debug\net5.0\MovieShopSPA\package-lock.json
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\bin\Debug\net5.0\MovieShopSPA\package.json
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\bin\Debug\net5.0\MovieShopSPA\tsconfig.app.json
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\bin\Debug\net5.0\MovieShopSPA\tsconfig.json
+C:\Users\김태호\Desktop\AntraAssignments\2021June-main\MovieShopMVC\bin\Debug\net5.0\MovieShopSPA\tsconfig.spec.json

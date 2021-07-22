@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Entities;
+using ApplicationCore.Exceptions;
 using ApplicationCore.Models;
 using ApplicationCore.RepositoryInterfaces;
 using ApplicationCore.ServiceInterfaces;
@@ -27,6 +28,15 @@ namespace Infrastructure.Services
 
         public async Task<Purchase> ConfirmPurchase(PurchaseRequestModel model)
         {
+
+            var dbUser = await _purchaseRepository.GetByIdAsync(model.UserId);
+            var dbMovie = await _purchaseRepository.GetByIdAsync(model.MovieId);
+
+            if (dbUser != null && dbMovie != null)
+            {
+                throw new ConflictException("User already purchased this movie");
+            }
+
             var userId = _currentUser.UserId;
             var user = await _userService.GetUserById(model.UserId);
             var movie = await _movieService.GetMovieDetails(model.MovieId);
@@ -41,13 +51,16 @@ namespace Infrastructure.Services
             };
 
             var createdPurchase = await _purchaseRepository.AddAsync(purchase);
+           
             return createdPurchase;
         }
 
         public async Task<List<Purchase>> GetAllPurchases(int id)
         {
             var purchases = await _purchaseRepository.GetAllPurchases(id);
+            
             return purchases;
         }
+       
     }
 }

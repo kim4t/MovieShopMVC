@@ -20,19 +20,16 @@ namespace Infrastructure.Services
             _currentUser = currentUser;
             _movieService = movieService;
         }
-        public Task<List<Review>> GetAllReviews(int id)
+        public async Task<List<Review>> GetAllReviews(int id)
         {
-            var reviews = _reviewRepository.GetAllReviews(id);
-            return reviews;
-        }
-        public Task<List<Review>> GetAllReviews(ReviewRequestModel model)
-        {
-            var reviews = _reviewRepository.GetAllReviews(model.UserId);
+            var reviews = await _reviewRepository.GetAllReviews(id);
             return reviews;
         }
 
         public async Task<Review> PostReview(ReviewRequestModel model)
         {
+           
+
             var userId = _currentUser.UserId;
             var movie = await _movieService.GetMovieDetails(model.movieId);
 

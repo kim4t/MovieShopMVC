@@ -30,11 +30,10 @@ namespace Infrastructure.Services
                 ProfilePath = cast.ProfilePath, 
             };
             var characters = cast.MovieCasts.Where(c => c.CastId == id).Select(c=>c.Character).ToList();
-            var movies = cast.MovieCasts.Where(c => c.CastId == id).Select(c => c.Movie).ToList();
+           
             if (characters != null)
                 castDetails.Characters = characters;
-            if (movies != null)
-                castDetails.Movies = movies;
+          
             return castDetails;
            
         }
